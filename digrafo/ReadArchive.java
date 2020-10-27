@@ -62,9 +62,7 @@ public class ReadArchive{
 			text.add("Error, Arquivo não encontrado!");
 			return (ArrayList<String>) text;
 		}
-	}
-	
-	
+	}	
 }
 
 
