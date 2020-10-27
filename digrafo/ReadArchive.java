@@ -40,10 +40,12 @@ public class ReadArchive{
 				String[] newLine = line.split(" ");
 				
 				for(int i=0; i<newLine.length; i++) {
-					// tira os pontos, virgulas, aspas e travessões do texto. 
+					// tira os pontos, virgulas, aspas e travessões do texto.
 					newLine[i] = newLine[i].replace(".", "");
+					newLine[i] = newLine[i].replace(",", "");
 					newLine[i] = newLine[i].replace("-", "");
 					newLine[i] = newLine[i].replace("\"\"", "");
+				
 					text.add(newLine[i]);
 				}
 				
