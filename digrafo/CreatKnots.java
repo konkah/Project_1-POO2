@@ -7,10 +7,6 @@ import java.util.TreeMap;
 public class CreatKnots {
 	public ArrayList<String>AgroupAB(List<String> textArchive){
 		
-		/* List<String> groups = new ArrayList<String>();
-		
-		List<String> ab = new ArrayList<String>();*/
-		
 		// cria um TreeMap 
 		TreeMap<String, String> groups = new TreeMap<>();
 		
@@ -20,7 +16,7 @@ public class CreatKnots {
 		}
 		// imprime o resultado
 		System.out.print("\n");
-		System.out.print(groups);
+		groups.forEach((k, v) -> System.out.println(String.format("%s, %s", k, v)));
 		
 		
 		return null;		
