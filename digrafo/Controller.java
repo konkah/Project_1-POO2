@@ -10,12 +10,17 @@ public class Controller {
 		ArchivesReader reader = new ArchivesReader();
 
 		String currentDirectory = System.getProperty("user.dir");
-		String path = currentDirectory + "/documentation/Ex4_Parabens.txt";
+		String pathReader = currentDirectory + "/documentation/Ex4_Parabens.txt";
+		String pathWriter = currentDirectory + "/documentation/Ex4_Parabens.csv";
 
-		ArrayList<String> words = reader.BreakTextIntoWords(path);
+		ArrayList<String> words = reader.BreakTextIntoWords(pathReader);
 
 		NodesCreator nodesCreator = new NodesCreator();
 
 		Map<String, List<String>> nodes = nodesCreator.GroupByPreviousWord(words);
+
+		ArchivesWriter writer = new ArchivesWriter();
+
+		writer.WriteFile(pathWriter, nodes);
 	}
 }

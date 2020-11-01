@@ -4,7 +4,7 @@ import java.util.*;
 
 public class NodesCreator {
 	public Map<String, List<String>> GroupByPreviousWord(List<String> words){
-		Map<String, List<String>> groups = new HashMap<>();
+		Map<String, List<String>> groups = new TreeMap<>();
 
 		// walks through the array until last but one position
 		// because the last word does not have another word after it
