@@ -36,7 +36,9 @@ public class ArchivesReader {
 			String[] lineWords = line.split(" ");
 
 			for (int i=0; i<lineWords.length; i++) {
-				textWords.add(lineWords[i]);
+				if (!lineWords[i].isEmpty()) {
+					textWords.add(lineWords[i]);
+				}
 			}
 
 			// read next line
