@@ -21,8 +21,16 @@ public class ArchivesReader {
 			line = line.toLowerCase()
 					.replace(".", "")
 					.replace(",", "")
-					.replace("-", "")
-					.replace("\"", "");
+					.replace("\"", "")
+					.replace("(", "")
+					.replace(")", "")
+					.replace(";", "")
+					.replace("!", "")
+					.replace("–", "")
+					.replace("?", "")
+					.replace(":", "")
+					.replace("”", "")
+					.replace("“", "");
 
 			// split to separate text words
 			String[] lineWords = line.split(" ");
