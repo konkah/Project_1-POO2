@@ -2,9 +2,7 @@ package digrafo;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Controller {
 	public void CreateDigraphs(/*String args[]*/) throws IOException {
@@ -17,7 +15,7 @@ public class Controller {
 
 		NodesCreator nodesCreator = new NodesCreator();
 
-		Map<String, List<String>> nodes = nodesCreator.GroupByPreviousWord(words);
+		Map<String, Collection<String>> nodes = nodesCreator.GroupByPreviousWord(words);
 
 		ArchivesWriter writer = new ArchivesWriter();
 

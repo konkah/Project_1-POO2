@@ -3,8 +3,8 @@ package digrafo;
 import java.util.*;
 
 public class NodesCreator {
-	public Map<String, List<String>> GroupByPreviousWord(List<String> words){
-		Map<String, List<String>> groups = new TreeMap<>();
+	public Map<String, Collection<String>> GroupByPreviousWord(List<String> words){
+		Map<String, Collection<String>> groups = new TreeMap<>();
 
 		// walks through the array until last but one position
 		// because the last word does not have another word after it
@@ -17,7 +17,10 @@ public class NodesCreator {
 			if (!groups.containsKey(firstWord))
 				groups.put(firstWord, new ArrayList<>());
 
-			groups.get(firstWord).add(secondWord);
+			Collection<String> nextWords = groups.get(firstWord);
+
+			if (!nextWords.contains(secondWord))
+				nextWords.add(secondWord);
 		}
 
 		return groups;
