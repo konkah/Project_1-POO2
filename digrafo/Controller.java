@@ -5,11 +5,10 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Controller {
-	public void CreateDigraphs(/*String args[]*/) throws IOException {
+	public void CreateDigraphs(String pathReader) throws IOException {
 		ArchivesReader reader = new ArchivesReader();
 
-		String pathReader = getPath("Ex4_Parabens.txt");
-		String pathWriter = getPath("Ex4_Parabens.csv");
+		String pathWriter = pathReader.replace(".txt", ".csv");
 
 		ArrayList<String> words = reader.BreakTextIntoWords(pathReader);
 
@@ -20,11 +19,5 @@ public class Controller {
 		ArchivesWriter writer = new ArchivesWriter();
 
 		writer.WriteFile(pathWriter, nodes);
-	}
-
-	private final String currentDirectory = System.getProperty("user.dir");
-
-	private String getPath(String file) {
-		return Paths.get(currentDirectory, "documentation", file).toString();
 	}
 }
