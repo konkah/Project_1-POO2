@@ -3,19 +3,19 @@ package digrafo;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Controller {
-	public void main(String args[]) throws IOException {
+	public void CreateDigraphs(/*String args[]*/) throws IOException {
 		ArchivesReader reader = new ArchivesReader();
 
 		String currentDirectory = System.getProperty("user.dir");
 		String path = currentDirectory + "/documentation/Ex4_Parabens.txt";
 
-		ArrayList<String> textArchive = reader.BreakTextIntoWords(path);
+		ArrayList<String> words = reader.BreakTextIntoWords(path);
 
-		CreatKnots classKnots = new CreatKnots();
+		NodesCreator nodesCreator = new NodesCreator();
 
-		List<String> textKnots = classKnots.AgroupAB(textArchive);
-		System.out.println(textKnots);
+		Map<String, List<String>> nodes = nodesCreator.GroupByPreviousWord(words);
 	}
 }

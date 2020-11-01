@@ -6,10 +6,9 @@ public class StartProgram {
 	public static void main(String args[]) {
 		Controller controller = new Controller();
 		try {
-			controller.main(args);
+			controller.CreateDigraphs();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 }
