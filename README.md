@@ -1,7 +1,7 @@
 
-#Project I
+# Project I
 
-##Project I: Pre-text analyzer
+## Project I: Pre-text analyzer
 
 Objective: to develop a Java program to perform the pre-processing step of a text to be analyzed as a digraph by the free software tool Gephi. The program must accept a list of filenames of the type plain text (.txt) and, for each one of them, record an output in .csv format containing lists of adjacencies indicating succession of words for later construction of digraphs, as described next :
 
@@ -11,7 +11,7 @@ Objective: to develop a Java program to perform the pre-processing step of a tex
 
 Note that all punctuation, quotation marks, dashes and such must be eliminated, while all text must be converted to lowercase. Each word in the text appears once and once as the initial word of the lines, in alphabetical order. The destination list can have one or more words, but without repetition on the line.
 
-##Digraph:
+## Digraph:
 
 Your output files will be submitted to Gephi to reveal the digraph corresponding to word sequences.
 
