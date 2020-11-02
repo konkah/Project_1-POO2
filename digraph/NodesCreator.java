@@ -1,4 +1,4 @@
-package digrafo;
+package digraph;
 
 import java.util.*;
 

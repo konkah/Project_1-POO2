@@ -1,4 +1,4 @@
-package digrafo;
+package digraph;
 
 import java.io.IOException;
 import java.nio.file.Paths;
