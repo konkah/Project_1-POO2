@@ -15,7 +15,9 @@ public class StartProgram {
 		String error = controller.getError();
 
 		if (error != null) {
-			System.out.println(error);
+			System.err.println(error);
+		} else {
+			System.out.println("File " + path + " processed successfully");
 		}
 	}
 
