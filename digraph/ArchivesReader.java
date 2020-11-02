@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 public class ArchivesReader {
 	public ArchivesReader(String path) {
+		if (!path.endsWith(".txt")) {
+			error = "File extension should be .txt, cannot process '" + path + "'";
+			return;
+		}
+
 		this.path = path;
 
 		FileReader fileReader;
