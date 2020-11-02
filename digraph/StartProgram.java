@@ -1,9 +1,7 @@
 package digraph;
 
-import java.nio.file.Paths;
-
 public class StartProgram {
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		for (int i = 0; i < args.length; i++) {
 			createDigraph(args[i]);
 		}
@@ -19,11 +17,5 @@ public class StartProgram {
 		} else {
 			System.out.println("File " + path + " processed successfully");
 		}
-	}
-
-	private static final String currentDirectory = System.getProperty("user.dir");
-
-	private static String getPath(String file) {
-		return Paths.get(currentDirectory, "documentation", file).toString();
 	}
 }
