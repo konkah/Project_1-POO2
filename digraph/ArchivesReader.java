@@ -12,7 +12,7 @@ public class ArchivesReader {
 		FileReader fileReader = new FileReader(path);
 		BufferedReader bufferReader = new BufferedReader(fileReader);
 
-		// Faz a leitura da primeira linha de texto do arquivo
+		// Reads the first line of the file
 		String line = bufferReader.readLine();
 
 		while (line != null) {
