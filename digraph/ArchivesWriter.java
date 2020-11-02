@@ -12,27 +12,64 @@ public class ArchivesWriter {
 
     private final String path;
     private final Map<String, Collection<String>> nodes;
+    private String error;
 
-    public void WriteFile() throws IOException {
-        FileWriter fileWriter = new FileWriter(path);
+    public void writeFile() {
+        FileWriter fileWriter;
+
+        try {
+            fileWriter = new FileWriter(path);
+        } catch (IOException e) {
+            error = "File '" + path + "' not found or cannot be written";
+            return;
+        }
+
         BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
+        boolean written;
 
         for (int i = 0; i < nodes.size(); i++) {
-            String key = nodes.keySet().toArray()[i].toString();
+            String key = getByPosition(nodes.keySet(), i);
 
-            bufferWriter.write(key);
+            written = write(bufferWriter, key);
+            if (!written) return;
 
             Collection<String> values = nodes.get(key);
 
             for (int j = 0; j < values.size(); j++) {
-                bufferWriter.write(", ");
-                bufferWriter.write(values.toArray()[j].toString());
+                written = write(bufferWriter, ", ");
+                if (!written) return;
+
+                written = write(bufferWriter, getByPosition(values, j));
+                if (!written) return;
             }
 
-            bufferWriter.write("\n");
+            written = write(bufferWriter, "\n");
+            if (!written) return;
         }
 
-        bufferWriter.close();
-        fileWriter.close();
+        try {
+            bufferWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            error = "Error trying to close file '" + path + "'";
+        }
+    }
+
+    private String getByPosition(Collection<String> strings, int position) {
+        return strings.toArray()[position].toString();
+    }
+
+    private boolean write(BufferedWriter bufferWriter, String key) {
+        try {
+            bufferWriter.write(key);
+            return true;
+        } catch (IOException e) {
+            error = "File '" + path + "' cannot be written";
+            return false;
+        }
+    }
+
+    public String getError() {
+        return error;
     }
 }
