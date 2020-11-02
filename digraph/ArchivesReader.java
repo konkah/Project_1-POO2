@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ArchivesReader {
-	public ArrayList<String> BreakTextIntoWords(String path) throws IOException {
-		ArrayList<String> textWords = new ArrayList<String>();
-		
+	public ArchivesReader(String path) throws IOException {
 		FileReader fileReader = new FileReader(path);
 		BufferedReader bufferReader = new BufferedReader(fileReader);
 
@@ -37,7 +35,7 @@ public class ArchivesReader {
 
 			for (int i=0; i<lineWords.length; i++) {
 				if (!lineWords[i].isEmpty()) {
-					textWords.add(lineWords[i]);
+					words.add(lineWords[i]);
 				}
 			}
 
@@ -47,7 +45,11 @@ public class ArchivesReader {
 
 		bufferReader.close();
 		fileReader.close();
+	}
 
-		return textWords;
+	private final ArrayList<String> words = new ArrayList<String>();
+
+	public ArrayList<String> getWords() {
+		return words;
 	}
 }

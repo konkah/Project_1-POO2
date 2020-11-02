@@ -5,16 +5,15 @@ import java.nio.file.Paths;
 
 public class StartProgram {
 	public static void main(String args[]) {
-		Controller controller = new Controller();
 		//for (int i = 0; i < args.length; i++) {
 			try {
-				controller.CreateDigraphs("documentation/Ex1_WantedAndWild.txt");
-				controller.CreateDigraphs("documentation/Ex2_AMascaraDaMorteRubra.txt");
-				controller.CreateDigraphs("documentation/Ex3_LuarDoSertao.txt");
-				controller.CreateDigraphs("documentation/Ex4_Parabens.txt");
-				controller.CreateDigraphs("documentation/Ex5_TresMotivosParaVacinarSeuPet.txt");
+				new Controller("documentation/Ex1_WantedAndWild.txt").CreateDigraphs();
+				new Controller("documentation/Ex2_AMascaraDaMorteRubra.txt").CreateDigraphs();
+				new Controller("documentation/Ex3_LuarDoSertao.txt").CreateDigraphs();
+				new Controller("documentation/Ex4_Parabens.txt").CreateDigraphs();
+				new Controller("documentation/Ex5_TresMotivosParaVacinarSeuPet.txt").CreateDigraphs();
 			} catch (IOException e) {
-				System.out.println("It was not possible to find file ");
+				System.out.println("It was not possible to find file");
 			}
 		//}
 	}

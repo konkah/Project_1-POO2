@@ -3,9 +3,7 @@ package digraph;
 import java.util.*;
 
 public class NodesCreator {
-	public Map<String, Collection<String>> GroupByPreviousWord(List<String> words){
-		Map<String, Collection<String>> groups = new TreeMap<>();
-
+	public NodesCreator(List<String> words){
 		// walks through the array until last but one position
 		// because the last word does not have another word after it
 		// this would give an error and is not necessary,
@@ -14,15 +12,19 @@ public class NodesCreator {
 			String firstWord = words.get(i);
 			String secondWord = words.get(i+1);
 
-			if (!groups.containsKey(firstWord))
-				groups.put(firstWord, new ArrayList<>());
+			if (!nodes.containsKey(firstWord))
+				nodes.put(firstWord, new ArrayList<>());
 
-			Collection<String> nextWords = groups.get(firstWord);
+			Collection<String> nextWords = nodes.get(firstWord);
 
 			if (!nextWords.contains(secondWord))
 				nextWords.add(secondWord);
 		}
+	}
 
-		return groups;
+	private Map<String, Collection<String>> nodes = new TreeMap<>();
+
+	public Map<String, Collection<String>> getNodes() {
+		return nodes;
 	}
 }

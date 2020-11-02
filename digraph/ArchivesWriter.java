@@ -5,7 +5,15 @@ import java.util.Collection;
 import java.util.Map;
 
 public class ArchivesWriter {
-    public void WriteFile(String path, Map<String, Collection<String>> nodes) throws IOException {
+    public ArchivesWriter(String path, Map<String, Collection<String>> nodes) {
+        this.path = path;
+        this.nodes = nodes;
+    }
+
+    private final String path;
+    private final Map<String, Collection<String>> nodes;
+
+    public void WriteFile() throws IOException {
         FileWriter fileWriter = new FileWriter(path);
         BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
 

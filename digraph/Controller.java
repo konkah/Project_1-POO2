@@ -1,22 +1,27 @@
 package digraph;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 public class Controller {
-	public void CreateDigraphs(String pathReader) throws IOException {
-		ArchivesReader reader = new ArchivesReader();
+	public Controller(String path) {
+		pathReader = path;
+		pathWriter = path.replace(".txt", ".csv");
+	}
 
-		String pathWriter = pathReader.replace(".txt", ".csv");
+	private final String pathReader;
+	private final String pathWriter;
 
-		ArrayList<String> words = reader.BreakTextIntoWords(pathReader);
+	public void CreateDigraphs() throws IOException {
+		ArchivesReader reader = new ArchivesReader(pathReader);
+		List<String> words = reader.getWords();
 
-		NodesCreator nodesCreator = new NodesCreator();
+		NodesCreator nodesCreator = new NodesCreator(words);
+		Map<String, Collection<String>> nodes = nodesCreator.getNodes();
 
-		Map<String, Collection<String>> nodes = nodesCreator.GroupByPreviousWord(words);
-
-		ArchivesWriter writer = new ArchivesWriter();
-
-		writer.WriteFile(pathWriter, nodes);
+		ArchivesWriter writer = new ArchivesWriter(pathWriter, nodes);
+		writer.WriteFile();
 	}
 }
